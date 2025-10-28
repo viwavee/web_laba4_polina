@@ -7,6 +7,7 @@ require_once 'UserInfo.php';
 <head>
     <meta charset="UTF-8">
     <title>Главная — Заказ цветов</title>
+    <script src="js/script.js" defer></script>
 </head>
 <body>
     <h1>Главная страница «Заказ цветов»</h1>
@@ -47,10 +48,11 @@ require_once 'UserInfo.php';
         <p><strong>Последний заказ:</strong> <?= htmlspecialchars($_COOKIE['last_order']) ?></p>
     <?php endif; ?>
 
+    <hr>
+    <h3>Красивые цветы от Unsplash:</h3>
+    <div id="flowers">
     <?php
     if (isset($_SESSION['api_data'])) {
-        echo "<hr><h3>Красивые цветы от Unsplash:</h3>";
-
         $data = $_SESSION['api_data'];
         if (is_array($data)) {
             echo '<div style="display:flex; gap:10px;">';
@@ -64,8 +66,12 @@ require_once 'UserInfo.php';
         } else {
             echo "<p>Не удалось загрузить изображения.</p>";
         }
+    } elseif (isset($_SESSION['api_error'])) {
+        echo "<p style='color:red'>" . htmlspecialchars($_SESSION['api_error']) . "</p>";
     }
     ?>
+    </div>
+    <button id="refreshApi">Обновить данные</button>
 
     <p><a href="form.html">Сделать новый заказ</a> | <a href="view.php">Посмотреть все заказы</a></p>
 </body>
