@@ -1,0 +1,19 @@
+services:
+  nginx:
+    image: nginx:latest
+    container_name: flower_nginx
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./www:/var/www/html
+    depends_on:
+      - php
+
+  php:
+    image: php:8.2-fpm
+    container_name: flower_php
+    volumes:
+      - ./www:/var/www/html
+    expose:
+      - "9000"
