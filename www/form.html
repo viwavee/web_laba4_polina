@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Заказ цветов</title>
+</head>
+<body>
+    <h1>Заказ цветов</h1>
+    <form action="process.php" method="POST">
+        <label>Имя клиента:</label><br>
+        <input type="text" name="username" placeholder="Введите имя" required><br><br>
+
+        <label>Количество букетов:</label><br>
+        <input type="number" name="count" min="1" required><br><br>
+
+        <label>Вид букета:</label><br>
+        <select name="type" required>
+            <option value="">Выберите вид</option>
+            <option value="розы">Розы</option>
+            <option value="тюльпаны">Тюльпаны</option>
+            <option value="орхидеи">Орхидеи</option>
+            <option value="сборный">Сборный</option>
+        </select><br><br>
+
+        <input type="checkbox" name="card" value="yes"> Добавить открытку<br><br>
+
+        <label>Способ получения:</label><br>
+        <input type="radio" name="delivery" value="Доставка" required> Доставка<br>
+        <input type="radio" name="delivery" value="Самовывоз" required> Самовывоз<br><br>
+
+        <button type="submit">Оформить заказ</button>
+    </form>
+
+    <p><a href="index.php">На главную</a></p>
+</body>
+</html>
