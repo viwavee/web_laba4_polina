@@ -1,0 +1,12 @@
+{
+    "name": "polina/lab4",
+    "authors": [
+        {
+            "name": "Полина",
+            "email": "polinawey2@gmail.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.10"
+    }
+}
